@@ -17,6 +17,7 @@ function setName(input){
 
 if(input){
 	
+	
 name=input;
 
 }
