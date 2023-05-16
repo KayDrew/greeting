@@ -1,10 +1,14 @@
+
+
 .container{
 width:80%;
 border: 1px 1px 1px 1px solid black;
 margin:auto;
 font-family: calibri;
 border: 1px dotted black;
-
+background: rgba(255,255,255,0.2);
+margin-top:50%;
+padding:30px;
 }
 
 h2{
@@ -13,25 +17,24 @@ margin:10px;
 margin-bottom: 20px;
 }
 
-.nameClass {
-
-display:grid;
-grid-template-columns: 1fr 1fr;
+.nameCalss {
+display:flex;
 }
 
 .nameField{
 
-    margin-left: 10px;
-
+margin:10px;
+max-height: 40px;
 }
 
 .showCount{
-background-color: black;
-width: 50px;
-color:white;
 margin-left:30px;
 border-radius: 3px;
-margin-top: 0px;
+font-size:2.2em;
+font-weight:bolder;
+color: rgba(0,0, 0,0.7);
+font-family:courier;
+margin-top: 5px;
 }
 
 .radioButtons{
@@ -42,21 +45,31 @@ margin:10px;
 button{
 margin:10px;
 color: white;
-background-color:black;
 padding: 10px;
 border: none;
 margin-bottom:15px;
 border-radius: 5px;
+
+}
+
+.submit {
+background-color: rgba(0,195,0,0.63);
+
+}
+
+.reset {
+background-color: rgba(195,0,0,0.63);
 }
 
 .message{
 
 margin:10px;
 padding-bottom:30px;
+font-size:2em;
 
 }
 
 .error{
-    color: red;
-    margin-left: 10px;
+color: red;
 }
+
