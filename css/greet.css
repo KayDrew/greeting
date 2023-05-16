@@ -11,10 +11,24 @@ margin-top:50%;
 padding:30px;
 }
 
+
+
+@media screen and (min-width:700px){
+
+.container {width:40%;
+margin-top:10%;
+}
+.inside{
+margin-left:20%;
+margin-right:20%;
+}
+}
+
 h2{
 font-family: monospace ;
 margin:10px;
-margin-bottom: 20px;
+margin-bottom: 40px;
+
 }
 
 .nameCalss {
@@ -66,6 +80,7 @@ background-color: rgba(195,0,0,0.63);
 margin:10px;
 padding-bottom:30px;
 font-size:2em;
+margin-top:10px;
 
 }
 

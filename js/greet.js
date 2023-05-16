@@ -1,11 +1,11 @@
 let names={};
-let usersGreeted=0;
+let usersGreeted=localStorage.getItem("greeted");
 
 function  greetName(){
 
 var name="";
-var count=0;
-var checkError=""
+var checkError="";
+var userExists=false;
 
 
 let greetings=[
@@ -25,39 +25,46 @@ function setName(input){
 
 if(input){
 	
+	if(regex.test(input)){
+		
 var lowInput=input.toLowerCase();
 	
 if(names.hasOwnProperty(lowInput)){
 	
-	name="";
+	userExists=true;
 	
 	}
-
-
-else {
-
-checkError="";
-
-if(regex.test(input)){
-name=input;
+	
+	else {
 names[lowInput]="greeted";
 }
 
-else{
-name="";
+checkError="";
+name=input;
 
 }
-
-
-}
-
-
-}
-
 
 else{
+
 name="";
+
+checkError="Please enter a valid name";
 }
+
+}
+
+else{
+	
+name="";
+
+checkError="Please enter a valid name";
+
+}
+
+
+
+
+
 }
 
 
@@ -79,12 +86,18 @@ var lang=greetings[i];
 
 if(language===lang.language){
 	
-	count++;
-
-localStorage.setItem("greeted",count);
+	if(userExists===false){
 	
-	usersGreeted = localStorage.getItem("greeted");
 
+if (usersGreeted=== null) {
+    usersGreeted = 0;
+} else {
+    usersGreeted++;
+}
+
+localStorage.setItem("greeted",usersGreeted);
+
+}
 	return lang.greeting+" " +name;
 	}
 	
@@ -92,8 +105,9 @@ localStorage.setItem("greeted",count);
 	
 }
 
-checkError= "Please enter a valid name and  language";
-
+else if(name && !language){
+checkError= "Please enter a valid language";
+}
 return null;
 }
 
@@ -111,10 +125,8 @@ return  usersGreeted;
 
 function resetValues(){
 
-
-count=0;
-usersGreeted =0;
-
+localStorage.removeItem("greeted");
+usersGreeted=0;
 names={};
 }
 

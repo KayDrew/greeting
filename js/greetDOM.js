@@ -29,7 +29,14 @@ showCount.innerHTML =greetUser.getCounter();
 errorMessage.innerHTML=greetUser.getCheckError();
 nameField.value="";
 
+errorMessage.style.visibility="visible";
+
+setTimeout(function(){
+  errorMessage.style.visibility="hidden";
+},3000);
+
 }
+
 submit.addEventListener("click", showGreeting);
 
 
@@ -38,6 +45,7 @@ function resetAll(){
 	greetUser.resetValues();
 showCount.innerHTML =greetUser.getCounter();
 errorMessage.innerHTML=greetUser.getCheckError();
+display.innerHTML="";
 }
 
 reset.addEventListener("click", resetAll);
