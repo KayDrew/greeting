@@ -1,6 +1,7 @@
 describe("The greeting function", function() {
 
 let greetUser=greetName();
+greetUser.resetValues();
 
 
     it("should  display Dumela and name of user", function(){
@@ -24,27 +25,23 @@ greetUser.setName("Kabelo");
                 assert.equal("Habari Thato",greetUser.getGreetings("Swahili")); //    
             });
             
-    it("should  display this 'This user has already been greeted'", function(){
-        
-        greetUser.setName("Drew");
-        greetUser.getGreetings("IsiNdebele")
-        assert.equal("This user has already been greeted",greetUser.getCheckError()); //    
-                });
+   
                 
                     it("should  display this 'Please enter a valid langauge'", function(){
                     	
         greetUser.setName("Lucas");
-        greetUser.getGreetings("Zulu")
+        greetUser.getGreetings("")
               assert.equal("Please enter a valid language",greetUser.getCheckError()); // 
-              greetUser.getGreetings("English")
+                     greetUser.setName("Loui");
+              greetUser.getGreetings("")
                         assert.equal("Please enter a valid language",greetUser.getCheckError()); // 
                         
                         });
                         
                            it("should  display this 'Please enter a valid name", function(){
                            	
-               greetUser.setName("Steve");
-                        greetUser.getGreetings("");
+               greetUser.setName("Ste45");
+                        greetUser.getGreetings("IsiNdebele");
                         assert.equal("Please enter a valid name",greetUser.getCheckError()); //
                       
         
@@ -76,7 +73,16 @@ greetUser.setName("Kabelo");
                       
                     });
 
-
+             
+                    it("should  not increment the count variable when the user has already been greeted", function(){
+            
+                   
+                        
+                             greetUser.setName("Lucia");
+                                    greetUser.getGreetings("Setswana");
+                             assert.equal(7,greetUser.getCounter());
+                      
+                    });
     
     });
 
