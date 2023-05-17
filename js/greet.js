@@ -88,7 +88,7 @@ if(language===lang.language){
 	
 
 if (usersGreeted=== null) {
-    usersGreeted = 0;
+    usersGreeted = 1;
 } else {
     usersGreeted++;
 }
