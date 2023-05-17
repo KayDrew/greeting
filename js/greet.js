@@ -36,6 +36,8 @@ if(names.hasOwnProperty(lowInput)){
 	}
 	
 	else {
+		
+		userExists=false;
 names[lowInput]="greeted";
 }
 
@@ -60,10 +62,6 @@ name="";
 checkError="Please enter a valid name";
 
 }
-
-
-
-
 
 }
 
