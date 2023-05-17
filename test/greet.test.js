@@ -27,7 +27,7 @@ greetUser.setName("Kabelo");
             
    
                 
-                    it("should  display this 'Please enter a valid langauge'", function(){
+                    it("should  display this 'Please enter a valid langauge", function(){
                     	
         greetUser.setName("Lucas");
         greetUser.getGreetings("")
@@ -38,7 +38,7 @@ greetUser.setName("Kabelo");
                         
                         });
                         
-                           it("should  display this 'Please enter a valid name", function(){
+                           it("should  display this 'Please enter a valid name'", function(){
                            	
                greetUser.setName("Ste45");
                         greetUser.getGreetings("IsiNdebele");
