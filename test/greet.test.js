@@ -1,7 +1,6 @@
 describe("The greeting function", function() {
 
 let greetUser=greetName();
-greetUser.resetValues();
 
 
     it("should  display Dumela and name of user", function(){
@@ -27,14 +26,14 @@ greetUser.setName("Kabelo");
             
    
                 
-                    it("should  display this 'Please enter a valid langauge", function(){
+                    it("should  display this 'Please select a langauge", function(){
                     	
         greetUser.setName("Lucas");
         greetUser.getGreetings("")
-              assert.equal("Please enter a valid language",greetUser.getCheckError()); // 
+              assert.equal("Please select a language",greetUser.getCheckError()); // 
                      greetUser.setName("Loui");
               greetUser.getGreetings("")
-                        assert.equal("Please enter a valid language",greetUser.getCheckError()); // 
+                        assert.equal("Please select a language",greetUser.getCheckError()); // 
                         
                         });
                         
@@ -61,29 +60,7 @@ greetUser.setName("Kabelo");
 
             
 
-                    
-            it("should  display number of users greeted", function(){
-            
-                      
-                        assert.equal(6,greetUser.getCounter()); // 
-                        
-                             greetUser.setName("Lucia");
-                                    greetUser.getGreetings("IsiNdebele")
-                             assert.equal(7,greetUser.getCounter());
-                      
-                    });
-
-             
-                    it("should  not increment the count variable when the user has already been greeted", function(){
-            
-                   
-                        
-                             greetUser.setName("Lucia");
-                                    greetUser.getGreetings("Setswana");
-                             assert.equal(7,greetUser.getCounter());
-                      
-                    });
-    
+      
     });
 
 

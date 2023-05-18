@@ -7,9 +7,11 @@ var display=document.querySelector(".message");
 var errorMessage= document.querySelector(".error");
 var from= document.querySelector(".form");
 let greetUser=greetName();
-
+let usersGreeted=localStorage.getItem("greeted");
 
 function showGreeting(){
+	
+	
 var language="";
 for(let radio of checkedRadio){
 
@@ -22,12 +24,33 @@ radio.checked=false;
 
 }
 
+
+
 greetUser.setName(nameField.value);
 
 display.innerHTML=greetUser.getGreetings(language);
-showCount.innerHTML =greetUser.getCounter();
+
 errorMessage.innerHTML=greetUser.getCheckError();
 nameField.value="";
+
+if(greetUser.getName()){
+
+if(greetUser.getUserExists()===false){
+	
+
+if (usersGreeted=== null) {
+    usersGreeted = 1;
+} else {
+    usersGreeted++;
+}
+
+localStorage.setItem("greeted",usersGreeted);
+
+}
+
+}
+showCount.innerHTML =greetUser.getCounter();
+
 
 errorMessage.style.visibility="visible";
 
@@ -42,10 +65,20 @@ submit.addEventListener("click", showGreeting);
 
 function resetAll(){
 	
-	greetUser.resetValues();
+	
+	if(reset){
+  
+  alert("Counter reseted");
+  
+localStorage.clear();
+usersGreeted=0;
+names={};
+
 showCount.innerHTML =greetUser.getCounter();
 errorMessage.innerHTML=greetUser.getCheckError();
 display.innerHTML="";
+
+}
 }
 
 reset.addEventListener("click", resetAll);

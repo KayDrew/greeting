@@ -1,5 +1,5 @@
 let names={};
-let usersGreeted=localStorage.getItem("greeted");
+
 
 function  greetName(){
 
@@ -23,10 +23,10 @@ let regex= /^([a-zA-Z]{3,})$/;
 
 function setName(input){
 
-if(input){
+
+if(input && regex.test(input.trim())){
 	
-	if(regex.test(input)){
-		
+
 var lowInput=input.toLowerCase();
 	
 if(names.hasOwnProperty(lowInput)){
@@ -55,17 +55,13 @@ checkError="Please enter a valid name";
 
 }
 
-else{
-	
-name="";
 
-checkError="Please enter a valid name";
 
+
+function getUserExists(){
+
+return userExists;
 }
-
-}
-
-
 
 function getName(){
 	
@@ -84,18 +80,6 @@ var lang=greetings[i];
 
 if(language===lang.language){
 	
-	if(userExists===false){
-	
-
-if (usersGreeted=== null) {
-    usersGreeted = 1;
-} else {
-    usersGreeted++;
-}
-
-localStorage.setItem("greeted",usersGreeted);
-
-}
 	return lang.greeting+" " +name;
 	}
 	
@@ -104,7 +88,7 @@ localStorage.setItem("greeted",usersGreeted);
 }
 
 else if(name && !language){
-checkError= "Please enter a valid language";
+checkError= "Please select a language";
 }
 return null;
 }
@@ -121,12 +105,6 @@ function getCounter(){
 return  usersGreeted;
 }
 
-function resetValues(){
-
-localStorage.removeItem("greeted");
-usersGreeted=0;
-names={};
-}
 
 
 return {
@@ -134,7 +112,8 @@ setName,
 getGreetings,
 getCounter,
 getCheckError,
-resetValues
+getName,
+getUserExists
 
 }
 
