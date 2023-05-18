@@ -35,7 +35,7 @@ nameField.value="";
 
 if(greetUser.getName()){
 
-if(greetUser.getUserExists()===false){
+if(greetUser.getUserExists()===false && greetUser.getCheckError()!=="Please select a language"){
 	
 
 if (usersGreeted=== null) {
@@ -49,10 +49,11 @@ localStorage.setItem("greeted",usersGreeted);
 }
 
 }
-showCount.innerHTML =greetUser.getCounter();
+showCount.innerHTML =usersGreeted;
 
 
 errorMessage.style.visibility="visible";
+errorMessage.style.color="red";
 
 setTimeout(function(){
   errorMessage.style.visibility="hidden";
@@ -65,20 +66,34 @@ submit.addEventListener("click", showGreeting);
 
 function resetAll(){
 	
+	errorMessage.style.visibility="visible";
+	errorMessage.innerHTML="Counter reseted";
+	errorMessage.style.color="green";
 	
-	if(reset){
-  
-  alert("Counter reseted");
-  
+	setTimeout(function(){
+  errorMessage.style.visibility="hidden";
+},3000);
+
 localStorage.clear();
 usersGreeted=0;
 names={};
 
-showCount.innerHTML =greetUser.getCounter();
-errorMessage.innerHTML=greetUser.getCheckError();
+showCount.innerHTML =usersGreeted;
 display.innerHTML="";
+nameField.value="";
+
+for(let radio of checkedRadio){
+
+if(radio.checked){
+
+language=radio.value;
+
+radio.checked=false;
+}
 
 }
+
+
 }
 
 reset.addEventListener("click", resetAll);

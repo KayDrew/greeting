@@ -24,7 +24,16 @@ greetUser.setName("Kabelo");
                 assert.equal("Habari Thato",greetUser.getGreetings("Swahili")); //    
             });
             
-   
+       it("should  display Akwande and name of user", function(){
+        
+        
+        greetUser.setName("Ora");
+              
+                assert.equal("Akwande Ora",greetUser.getGreetings("IsiNdebele")); // 
+                greetUser.setName("Obakeng");
+                assert.equal("Akwande Obakeng",greetUser.getGreetings("IsiNdebele")); // 
+              
+            });
                 
                     it("should  display this 'Please select a langauge", function(){
                     	
@@ -47,20 +56,21 @@ greetUser.setName("Kabelo");
         });
               
             
-    it("should  display Akwande and name of user", function(){
+
+            
+             it("should  display 'Please enter a name'", function(){
         
         
-        greetUser.setName("Ora");
+        greetUser.setName("");
               
-                assert.equal("Akwande Ora",greetUser.getGreetings("IsiNdebele")); // 
-                greetUser.setName("Obakeng");
-                assert.equal("Akwande Obakeng",greetUser.getGreetings("IsiNdebele")); // 
+                assert.equal("Please enter a  name",greetUser.getCheckError()); // 
+              
+                
               
             });
 
             
-
-      
+   
     });
 
 
