@@ -65,10 +65,33 @@ greetUser.setName("Kabelo");
               
                 assert.equal("Please enter a  name",greetUser.getCheckError()); // 
               
-                
               
             });
+            
+            
+                it("should  not increment the counter if user has already been greeted'", function(){
+        greetUser.setName("Obakeng");
+                    
+                assert.equal(true,greetUser.getUserExists()); // 
+                         
+            });
 
+    
+            
+                it("should  treat name as the same  regardless of casing'", function(){
+        
+        greetUser.setName("ora");              
+                assert.equal(true,greetUser.getUserExists()); // 
+                         
+            });
+            
+                         it("should  display 'Please enter name and select a language'", function(){
+        
+        greetUser.setName(); 
+greetUser.getGreetings();          
+                assert.equal("Please enter name and select a language",greetUser.getCheckError()); // 
+                         
+            });
             
    
     });

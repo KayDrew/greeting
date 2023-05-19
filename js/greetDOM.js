@@ -72,7 +72,7 @@ function resetAll(){
 	
 	setTimeout(function(){
   errorMessage.style.visibility="hidden";
-},3000);
+},4000);
 
 localStorage.clear();
 usersGreeted=0;

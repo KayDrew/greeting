@@ -54,7 +54,7 @@ name="";
 checkError="Please enter a  name";
 }
 
-else if(input &&!regex.test(input.trim())  {
+else if(input &&!regex.test(input.trim()) ) {
 
 name="";
 isInvalidName=true;
@@ -100,7 +100,7 @@ else if(name && !language){
 checkError= "Please select a language";
 }
 
-else if(!name && !isInvalidName && !language){
+else if(!name  && !language){
 checkError= "Please enter name and select a language";
 }
 
