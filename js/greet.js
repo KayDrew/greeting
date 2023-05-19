@@ -71,11 +71,6 @@ function getUserExists(){
 return userExists;
 }
 
-function getName(){
-	
-	return name;
-
-}
 
 function getGreetings(language){
 	
@@ -119,7 +114,6 @@ return {
 setName,
 getGreetings,
 getCheckError,
-getName,
 getUserExists
 
 }

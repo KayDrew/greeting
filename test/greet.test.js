@@ -1,4 +1,4 @@
-describe("The greeting function", function() {
+describe("The greeting function:setName function", function() {
 
 let greetUser=greetName();
 
@@ -34,6 +34,10 @@ greetUser.setName("Kabelo");
                 assert.equal("Akwande Obakeng",greetUser.getGreetings("IsiNdebele")); // 
               
             });
+            
+            });
+            
+            describe("The greeting function:getCheckError function", function() {
                 
                     it("should  display this 'Please select a langauge", function(){
                     	
@@ -68,6 +72,18 @@ greetUser.setName("Kabelo");
               
             });
             
+                    it("should  display 'Please enter name and select a language'", function(){
+        
+        greetUser.setName(); 
+greetUser.getGreetings();          
+                assert.equal("Please enter name and select a language",greetUser.getCheckError()); // 
+                         
+            });
+                 });
+            
+            
+            describe("The greeting function:getUserExists function", function() {
+            
             
                 it("should  not increment the counter if user has already been greeted'", function(){
         greetUser.setName("Obakeng");
@@ -75,8 +91,8 @@ greetUser.setName("Kabelo");
                 assert.equal(true,greetUser.getUserExists()); // 
                          
             });
-
-    
+            
+                          
             
                 it("should  treat name as the same  regardless of casing'", function(){
         
@@ -85,13 +101,15 @@ greetUser.setName("Kabelo");
                          
             });
             
-                         it("should  display 'Please enter name and select a language'", function(){
+                it("should  return false when the user has not been greeted yet'", function(){
         
-        greetUser.setName(); 
-greetUser.getGreetings();          
-                assert.equal("Please enter name and select a language",greetUser.getCheckError()); // 
+        greetUser.setName("Benny");              
+                assert.equal(false,greetUser.getUserExists()); // 
                          
             });
+            
+            
+                         
             
    
     });
