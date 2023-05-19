@@ -28,7 +28,7 @@ function setName(input){
 if(input && regex.test(input.trim())){
 	
 
-var lowInput=input.toLowerCase();
+var lowInput=input.trim().toLowerCase();
 	
 if(names.hasOwnProperty(lowInput)){
 	

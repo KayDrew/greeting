@@ -66,6 +66,10 @@ submit.addEventListener("click", showGreeting);
 
 function resetAll(){
 	
+	var reset=confirm("Counter will be reseted. Would you like to continue?");
+	
+	if(reset){
+		
 	errorMessage.style.visibility="visible";
 	errorMessage.innerHTML="Counter reseted";
 	errorMessage.style.color="green";
@@ -93,7 +97,7 @@ radio.checked=false;
 
 }
 
-
+}
 }
 
 reset.addEventListener("click", resetAll);
