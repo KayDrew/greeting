@@ -38,7 +38,7 @@ if(greetUser.getName()){
 if(greetUser.getUserExists()===false && greetUser.getCheckError()!=="Please select a language"){
 	
 
-if (usersGreeted=== null) {
+if (usersGreeted=== null || usersGreeted===0) {
     usersGreeted = 1;
 } else {
     usersGreeted++;
