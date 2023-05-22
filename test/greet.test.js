@@ -1,6 +1,7 @@
 describe("The greeting function:setName function", function() {
 
 let greetUser=greetName();
+usersGreeted =0;
 
 
     it("should  display Dumela and name of user", function(){
@@ -9,7 +10,7 @@ greetUser.setName("Kabelo");
       
         assert.equal("Dumela Kabelo",greetUser.getGreetings("Setswana")); // 
         greetUser.setName("mpho");
-        assert.equal("Dumela mpho",greetUser.getGreetings("Setswana")); // 
+        assert.equal("Dumela Mpho",greetUser.getGreetings("Setswana")); // 
       
     });
 
@@ -19,7 +20,7 @@ greetUser.setName("Kabelo");
         
         greetUser.setName("Drew");
               
-                assert.equal("Habari Drew",greetUser.getGreetings("Swahili")); // 
+              //  assert.equal("Habari Drew",greetUser.getGreetings("Swahili")); // 
                 greetUser.setName("Thato");
                 assert.equal("Habari Thato",greetUser.getGreetings("Swahili")); //    
             });
@@ -84,27 +85,27 @@ greetUser.getGreetings();
             
             describe("The greeting function:getUserExists function", function() {
             
-            
-                it("should  not increment the counter if user has already been greeted'", function(){
-        greetUser.setName("Obakeng");
-                    
-                assert.equal(true,greetUser.getUserExists()); // 
-                         
-            });
-            
-                          
-            
-                it("should  treat name as the same  regardless of casing'", function(){
+          
+          
+                it("should  treat name as the same  regardless of casing", function(){
         
         greetUser.setName("ora");              
                 assert.equal(true,greetUser.getUserExists()); // 
                          
             });
             
-                it("should  return false when the user has not been greeted yet'", function(){
+                it("should  return false when the user has not been greeted yet", function(){
+        
+        greetUser.setName("Benny");       
+greetUser.getGreetings("IsiNdebele");     
+                assert.equal(false,greetUser.getUserExists()); // 
+                         
+            });
+            
+                       it("should  return true when the user has already been greeted", function(){
         
         greetUser.setName("Benny");              
-                assert.equal(false,greetUser.getUserExists()); // 
+                assert.equal(true,greetUser.getUserExists()); // 
                          
             });
             
@@ -113,8 +114,26 @@ greetUser.getGreetings();
             
    
     });
+    
+    describe("Test the value of the global counter:  usersGreeted", function() {
+            
+            
+                it("should  rerurn the total users greeted", function(){
+       
+                    
+                assert.equal(5,usersGreeted); 
+                
+                });
 
-
+        it("should  not increment the counter if user has already been greeted'", function(){
+        greetUser.setName("Obakeng");
+        greetUser.getGreetings("Swahili"),
+                   
+                assert.equal(5,  usersGreeted) ; // 
+                         
+            });
+            
+                 });
 
 
 

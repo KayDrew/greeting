@@ -1,103 +1,103 @@
-var nameField= document.querySelector(".nameField");
-var showCount= document.querySelector(".showCount");
-var checkedRadio= document.querySelectorAll("input[name='language']");
-var submit= document.querySelector(".submit");
-var reset= document.querySelector(".reset");
-var display=document.querySelector(".message");
-var errorMessage= document.querySelector(".error");
-var from= document.querySelector(".form");
-let greetUser=greetName();
-let usersGreeted=localStorage.getItem("greeted");
+var nameField = document.querySelector(".nameField");
+var showCount = document.querySelector(".showCount");
+var checkedRadio = document.querySelectorAll("input[name='language']");
+var submit = document.querySelector(".submit");
+var reset = document.querySelector(".reset");
+var display = document.querySelector(".message");
+var errorMessage = document.querySelector(".error");
+var from = document.querySelector(".form");
+let greetUser = greetName();
+let errorTimeOut = "";
+let resetTimeOut = "";
 
-function showGreeting(){
-	
-	
-var language="";
-for(let radio of checkedRadio){
-
-if(radio.checked){
-
-language=radio.value;
-
-radio.checked=false;
+if (usersGreeted === null) {
+	showCount.innerHTML = 0;
 }
-
+else {
+	showCount.innerHTML = usersGreeted;
 }
 
 
-
-greetUser.setName(nameField.value);
-
-display.innerHTML=greetUser.getGreetings(language);
-
-errorMessage.innerHTML=greetUser.getCheckError();
-nameField.value="";
-
-if(greetUser.getName()){
-
-if(greetUser.getUserExists()===false && greetUser.getCheckError()!=="Please select a language"){
-	
-
-if (usersGreeted=== null || usersGreeted===0) {
-    usersGreeted = 1;
-} else {
-    usersGreeted++;
-}
-
-localStorage.setItem("greeted",usersGreeted);
-
-}
-
-}
-showCount.innerHTML =usersGreeted;
+function showGreeting() {
 
 
-errorMessage.style.visibility="visible";
-errorMessage.style.color="red";
+	var language = "";
+	for (let radio of checkedRadio) {
 
-setTimeout(function(){
-  errorMessage.style.visibility="hidden";
-},3000);
+		if (radio.checked) {
+
+			language = radio.value;
+
+			radio.checked = false;
+		}
+
+	}
+
+
+
+	greetUser.setName(nameField.value);
+
+	display.innerHTML = greetUser.getGreetings(language);
+
+	errorMessage.innerHTML = greetUser.getCheckError();
+	nameField.value = "";
+
+	showCount.innerHTML = usersGreeted;
+
+
+	errorMessage.style.visibility = "visible";
+	errorMessage.style.color = "red";
+
+	clearTimeout(errorTimeOut);
+	clearTimeout(resetTimeOut);
+
+	errorTimeOut = setTimeout(function () {
+		errorMessage.style.visibility = "hidden";
+	}, 3000);
 
 }
 
 submit.addEventListener("click", showGreeting);
 
 
-function resetAll(){
-	
-	var reset=confirm("Counter will be reseted. Would you like to continue?");
-	
-	if(reset){
-		
-	errorMessage.style.visibility="visible";
-	errorMessage.innerHTML="Counter reseted";
-	errorMessage.style.color="green";
-	
-	setTimeout(function(){
-  errorMessage.style.visibility="hidden";
-},4000);
+function resetAll() {
 
-localStorage.clear();
-usersGreeted=0;
-names={};
+	clearTimeout(errorTimeOut);
+	clearTimeout(resetTimeOut);
 
-showCount.innerHTML =usersGreeted;
-display.innerHTML="";
-nameField.value="";
+	var reset = confirm("Counter will be reseted. Would you like to continue?");
 
-for(let radio of checkedRadio){
+	if (reset) {
 
-if(radio.checked){
+		errorMessage.style.visibility = "visible";
+		errorMessage.innerHTML = "Counter reseted";
+		errorMessage.style.color = "green";
 
-language=radio.value;
+		resetTimeOut = setTimeout(function () {
+			errorMessage.style.visibility = "hidden";
+		}, 3000);
 
-radio.checked=false;
-}
+		localStorage.clear();
+		usersGreeted = 0;
+		names = {};
 
-}
+		showCount.innerHTML = usersGreeted;
+		display.innerHTML = "";
+		nameField.value = "";
 
-}
+		for (let radio of checkedRadio) {
+
+			if (radio.checked) {
+
+				language = radio.value;
+
+				radio.checked = false;
+			}
+
+		}
+
+	}
+
 }
 
 reset.addEventListener("click", resetAll);
