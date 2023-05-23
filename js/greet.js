@@ -45,6 +45,7 @@ function greetName() {
 			name = cap + low;
 
 			var lowInput = input.trim().toLowerCase();
+			isInvalidName = false;
 
 			if (names.hasOwnProperty(lowInput)) {
 
