@@ -121,7 +121,7 @@ greetUser.getGreetings("IsiNdebele");
                 it("should  rerurn the total users greeted", function(){
        
                     
-                assert.equal(5,usersGreeted); 
+                assert.equal(6,usersGreeted); 
                 
                 });
 
@@ -129,7 +129,7 @@ greetUser.getGreetings("IsiNdebele");
         greetUser.setName("Obakeng");
         greetUser.getGreetings("Swahili"),
                    
-                assert.equal(5,  usersGreeted) ; // 
+                assert.equal(6,  usersGreeted) ; // 
                          
             });
             
